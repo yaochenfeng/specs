@@ -1,25 +1,23 @@
-# coding: utf-8
-
 Pod::Spec.new do |s|
-  s.name         = "BeeKit"
-  s.version      = "0.0.1"
-  s.summary      = "BeeKit"
-
-  s.description  = <<-DESC
-                   Weexplugin Source Description
-                   DESC
-
-  s.homepage     = "https://github.com"
+  s.name                      = "BeeKit"
+  s.version                   = "0.0.1"
+  s.summary                   = "Bee"
+  s.homepage                  = "https://github.com/yaochenfeng/BeeKit"
   s.license = {
-    :type => 'Copyright',
+    :type => 'MIT',
     :text => <<-LICENSE
-            copyright
+            copyright MIT
     LICENSE
   }
-  s.authors      = {
-                     "yourname" =>"youreamail"
-                   }
-  s.platform     = :ios, '8.0'
-  s.source       = { :http => 'https://github.com/yaochenfeng/BHKit/releases/download/v0.1.0/BeeKit.framework.zip' }
-  s.ios.vendored_frameworks = 'Carthage/Build/iOS/*.framework'
+  s.author                    = { "yaochenfeng" => "282696845@qq.com" }
+  s.ios.deployment_target     = "9.0"
+  if ENV['USE_RELEASE']
+    s.source                    = { :http => "https://github.com/yaochenfeng/BeeKit/releases/download/#{s.version}/BeeKit.framework.zip" }
+    s.vendored_frameworks = 'Carthage/Build/iOS/*.framework'
+  else
+    s.source                    = { :git => "https://github.com/yaochenfeng/BeeKit.git", :tag => s.version.to_s }
+    s.source_files              = "Sources/BeeKit/**/*"
+  end
+  s.frameworks                = "Foundation"
+  s.swift_versions = ['5.0']
 end
