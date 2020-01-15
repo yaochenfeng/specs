@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   }
   s.author                    = { "yaochenfeng" => "282696845@qq.com" }
   s.ios.deployment_target     = "9.0"
-  if ENV['IS_SOURCE']
+  if ENV['IS_SOURCE_ALL'] || ENV['IS_SOURCE_'+s.name.to_s]
     s.source                    = { :git => "https://github.com/yaochenfeng/BeeKit.git", :tag => s.version.to_s }
     s.source_files              = "Sources/BeeKit/**/*"
   else
